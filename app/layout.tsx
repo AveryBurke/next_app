@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Source_Code_Pro } from "next/font/google";
 import "./globals.css";
 import Navbar from "./NavBar";
 import AuthProvider from "./auth/AuthProvider";
 
 const inter = Inter({ subsets: ["latin"] });
+
+const SC = Source_Code_Pro({ 
+	subsets: ["latin"],
+	weight:['200', '400', '500']
+});
 
 export const metadata: Metadata = {
 	title: "Create Next App",
@@ -14,9 +19,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang="en">
-			<body className={inter.className}>
+			<body className={SC.className}>
 				<AuthProvider>
-					<Navbar />
+					<Navbar  />
 					<main className="p-5">{children}</main>
 				</AuthProvider>
 			</body>
